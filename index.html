@@ -1,0 +1,200 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>@lambdataro/akashic-primitives</title>
+	<meta name="description" content="Documentation for @lambdataro/akashic-primitives">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">@lambdataro/akashic-primitives</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>@lambdataro/akashic-primitives</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#akashic-primitives" id="akashic-primitives" style="color: inherit; text-decoration: none;">
+					<h1>akashic-primitives</h1>
+				</a>
+				<p><code>akashic-primitives</code> は直線や楕円といったグラフィックプリミティブを akashic-engine で利用するためのライブラリです。</p>
+				<p>このライブラリは A. Schiffler 氏による
+					<a href="https://www.ferzkopp.net/wordpress/2016/01/02/sdl_gfx-sdl2_gfx/">SDL_gfx/SDL2_gfx ライブラリ</a>
+					のコードやアルゴリズムを元に作られています。
+				SDL_gfx ライブラリと SDL2_gfx ライブラリはどちらも zlib license で公開されています。</p>
+				<p>SDL2_gfx:</p>
+				<blockquote>
+					<p>(C) A. Schiffler, aschiffler [at] ferzkopp.net 2012-2018, licensed under the zlib license</p>
+				</blockquote>
+				<p>SDL_gfx:</p>
+				<blockquote>
+					<p>(C) A. Schiffler, aschiffler [at] ferzkopp.net 1999-2018, licensed under the zlib license</p>
+				</blockquote>
+				<p><code>akashic-primitives</code> は <code>g.Renderer</code> の <code>_getImageData</code> と <code>_putImageData</code> を利用して描画を行います。
+					Canvas レンダラでこれらのメソッドが利用できる一方、WebGL レンダラでは利用できないので、
+				<code>game.json</code> の <code>renderers</code> に <code>[&quot;canvas&quot;]</code> の指定が必要となります。</p>
+				<pre><code class="language-json"><span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #CD3131">...</span>
+<span style="color: #000000">    </span><span style="color: #0451A5">&quot;renderers&quot;</span><span style="color: #000000">: [</span><span style="color: #A31515">&quot;canvas&quot;</span><span style="color: #000000">]</span>
+<span style="color: #000000">}</span>
+</code></pre>
+				<a href="#プリミティブ一覧" id="プリミティブ一覧" style="color: inherit; text-decoration: none;">
+					<h2>プリミティブ一覧</h2>
+				</a>
+				<a href="#点" id="点" style="color: inherit; text-decoration: none;">
+					<h3>点</h3>
+				</a>
+				<ul>
+					<li><code>pixel()</code>: ピクセルを描く</li>
+				</ul>
+				<a href="#線" id="線" style="color: inherit; text-decoration: none;">
+					<h3>線</h3>
+				</a>
+				<ul>
+					<li><code>hline()</code>: 水平線を描く</li>
+					<li><code>vline()</code>: 垂直線を描く</li>
+					<li><code>line()</code>: 線を描く</li>
+					<li><code>arc()</code>: 円弧を描く</li>
+					<li><code>bezier()</code>: ベジェ曲線を描く</li>
+				</ul>
+				<a href="#図形" id="図形" style="color: inherit; text-decoration: none;">
+					<h3>図形</h3>
+				</a>
+				<ul>
+					<li><code>rectangle()</code>: 長方形を描く</li>
+					<li><code>ellipse()</code>: 楕円を描く</li>
+					<li><code>circle()</code>: 円を描く</li>
+					<li><code>roundedRectangle()</code>: 角丸長方形を描く</li>
+					<li><code>polygon()</code>: ポリゴンを描く</li>
+					<li><code>trigon()</code>: 三角形を描く</li>
+					<li><code>pie()</code>: 扇形を描く</li>
+				</ul>
+				<a href="#塗りつぶした図形" id="塗りつぶした図形" style="color: inherit; text-decoration: none;">
+					<h3>塗りつぶした図形</h3>
+				</a>
+				<ul>
+					<li><code>box()</code>: 塗りつぶした長方形を描く</li>
+					<li><code>filledEllipse()</code>: 塗りつぶした楕円を描く</li>
+					<li><code>filledCircle()</code>: 塗りつぶした円を描く</li>
+					<li><code>roundedBox()</code>: 塗りつぶした角丸長方形を描く</li>
+					<li><code>filledPolygon()</code>: 塗りつぶしたポリゴンを描く</li>
+					<li><code>filledTrigon()</code>: 塗りつぶした三角形を描く</li>
+					<li><code>filledPie()</code>: 塗りつぶした扇形を描く</li>
+				</ul>
+				<a href="#使い方" id="使い方" style="color: inherit; text-decoration: none;">
+					<h2>使い方</h2>
+				</a>
+				<p>線を引くには以下のようにします。</p>
+				<pre><code class="language-js"><span style="color: #0000FF">var</span><span style="color: #000000"> </span><span style="color: #001080">lib</span><span style="color: #000000"> = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;@lambdataro/akashic-primitives&quot;</span><span style="color: #000000">);</span>
+
+<span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">main</span><span style="color: #000000">() {</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">var</span><span style="color: #000000"> </span><span style="color: #001080">scene</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #001080">g</span><span style="color: #000000">.</span><span style="color: #795E26">Scene</span><span style="color: #000000">({ </span><span style="color: #001080">game:</span><span style="color: #000000"> </span><span style="color: #001080">g</span><span style="color: #000000">.</span><span style="color: #001080">game</span><span style="color: #000000"> });</span>
+<span style="color: #000000">    </span><span style="color: #001080">scene</span><span style="color: #000000">.</span><span style="color: #001080">onLoad</span><span style="color: #000000">.</span><span style="color: #795E26">addOnce</span><span style="color: #000000">(</span><span style="color: #0000FF">function</span><span style="color: #000000"> () {</span>
+<span style="color: #000000">        </span><span style="color: #0000FF">var</span><span style="color: #000000"> </span><span style="color: #001080">surface</span><span style="color: #000000"> = </span><span style="color: #001080">g</span><span style="color: #000000">.</span><span style="color: #001080">game</span><span style="color: #000000">.</span><span style="color: #001080">resourceFactory</span><span style="color: #000000">.</span><span style="color: #795E26">createSurface</span><span style="color: #000000">(</span><span style="color: #098658">200</span><span style="color: #000000">, </span><span style="color: #098658">200</span><span style="color: #000000">);</span>
+<span style="color: #000000">        </span><span style="color: #0000FF">var</span><span style="color: #000000"> </span><span style="color: #001080">rgba</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">Uint8ClampedArray</span><span style="color: #000000">([</span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #098658">255</span><span style="color: #000000">, </span><span style="color: #098658">255</span><span style="color: #000000">]);</span>
+<span style="color: #000000">        </span><span style="color: #001080">lib</span><span style="color: #000000">.</span><span style="color: #001080">primitives</span><span style="color: #000000">.</span><span style="color: #795E26">line</span><span style="color: #000000">(</span><span style="color: #001080">surface</span><span style="color: #000000">.</span><span style="color: #795E26">renderer</span><span style="color: #000000">(), </span><span style="color: #098658">50</span><span style="color: #000000">, </span><span style="color: #098658">50</span><span style="color: #000000">, </span><span style="color: #098658">150</span><span style="color: #000000">, </span><span style="color: #098658">100</span><span style="color: #000000">, </span><span style="color: #001080">rgba</span><span style="color: #000000">);</span>
+<span style="color: #000000">        </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #001080">g</span><span style="color: #000000">.</span><span style="color: #795E26">Sprite</span><span style="color: #000000">({</span>
+<span style="color: #000000">            </span><span style="color: #001080">scene:</span><span style="color: #000000"> </span><span style="color: #001080">scene</span><span style="color: #000000">,</span>
+<span style="color: #000000">            </span><span style="color: #001080">parent:</span><span style="color: #000000"> </span><span style="color: #001080">scene</span><span style="color: #000000">,</span>
+<span style="color: #000000">            </span><span style="color: #001080">src:</span><span style="color: #000000"> </span><span style="color: #001080">surface</span><span style="color: #000000">,</span>
+<span style="color: #000000">        });</span>
+<span style="color: #000000">    });</span>
+<span style="color: #000000">    </span><span style="color: #001080">g</span><span style="color: #000000">.</span><span style="color: #001080">game</span><span style="color: #000000">.</span><span style="color: #795E26">pushScene</span><span style="color: #000000">(</span><span style="color: #001080">scene</span><span style="color: #000000">);</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #267F99">module</span><span style="color: #000000">.</span><span style="color: #267F99">exports</span><span style="color: #000000"> = </span><span style="color: #001080">main</span><span style="color: #000000">;</span>
+</code></pre>
+				<p>他の形状は <code>test/</code> 以下を参照してください。</p>
+				<a href="#ビルド方法" id="ビルド方法" style="color: inherit; text-decoration: none;">
+					<h2>ビルド方法</h2>
+				</a>
+				<pre><code class="language-sh"><span style="color: #000000">$ npm install</span>
+<span style="color: #000000">$ npm run build</span>
+</code></pre>
+				<a href="#テスト方法" id="テスト方法" style="color: inherit; text-decoration: none;">
+					<h2>テスト方法</h2>
+				</a>
+				<pre><code class="language-sh"><span style="color: #000000">$ npm run prepare</span>
+<span style="color: #000000">$ npm </span><span style="color: #795E26">test</span>
+</code></pre>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="modules/color.html">color</a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="modules/primitives.html">primitives</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
