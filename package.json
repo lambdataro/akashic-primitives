@@ -20,7 +20,7 @@
     "doc": "typedoc --out ./doc ./src/index.ts",
     "format": "prettier --write \"**/*.{js,json,ts,md}\"",
     "lint": "eslint \"./{src,test}/**/*.ts\"",
-    "prepare": "foreach --no-C -g \"test/*/*/package.json\" -x \"cd #{dir} && npm install\"",
+    "prepare-test": "foreach --no-C -g \"test/*/*/package.json\" -x \"cd #{dir} && npm install\"",
     "test": "jest --detectOpenHandles",
     "gh-pages": "npm run doc && gh-pages -d doc"
   },
