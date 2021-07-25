@@ -1,0 +1,55 @@
+{
+  "name": "@lambdataro/akashic-primitives",
+  "version": "1.0.0",
+  "description": "Graphics drawing primitives for Akashic Engine",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lambdataro/akashic-primitives.git"
+  },
+  "license": "zlib",
+  "author": "@lambdataro",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "rimraf ./lib && tsc",
+    "clean": "rimraf ./lib ./doc",
+    "doc": "typedoc --out ./doc ./src/index.ts",
+    "format": "prettier --write \"**/*.{js,json,ts,md}\"",
+    "lint": "eslint \"./{src,test}/**/*.ts\"",
+    "prepare": "foreach --no-C -g \"test/*/*/package.json\" -x \"cd #{dir} && npm install\"",
+    "test": "jest --detectOpenHandles",
+    "gh-pages": "npm run doc && gh-pages -d doc"
+  },
+  "dependencies": {
+    "@akashic/akashic-engine": "^3.0.4"
+  },
+  "devDependencies": {
+    "@akashic/akashic-engine": "^3.0.4",
+    "@akashic/headless-akashic": "^2.1.0",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.12.5",
+    "@types/pixelmatch": "^5.2.3",
+    "@types/pngjs": "^6.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.28.1",
+    "@typescript-eslint/parser": "^4.28.1",
+    "eslint": "^7.29.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^24.3.6",
+    "eslint-plugin-prettier": "^3.4.0",
+    "foreach-cli": "^1.8.1",
+    "gh-pages": "^3.2.3",
+    "jest": "^27.0.6",
+    "pixelmatch": "^5.2.1",
+    "pngjs": "^6.0.0",
+    "prettier": "^2.3.2",
+    "prettier-plugin-packagejson": "^2.2.11",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.0.3",
+    "typedoc": "^0.21.4",
+    "typescript": "^4.3.4"
+  }
+}

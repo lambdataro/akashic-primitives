@@ -1,0 +1,7 @@
+{
+  "name": "filledTrigon",
+  "version": "1.0.0",
+  "dependencies": {
+    "@lambdataro/akashic-primitives": "file:../../.."
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "width": 1280,
+  "height": 720,
+  "fps": 30,
+  "main": "./script/main.js",
+  "assets": {
+    "main": {
+      "type": "script",
+      "path": "script/main.js",
+      "global": true
+    }
+  },
+  "environment": {
+    "sandbox-runtime": "3"
+  },
+  "moduleMainScripts": {
+    "@lambdataro/akashic-primitives": "./node_modules/@lambdataro/akashic-primitives/lib/index.js"
+  },
+  "globalScripts": [
+    "./node_modules/@lambdataro/akashic-primitives/lib/index.js",
+    "./node_modules/@lambdataro/akashic-primitives/lib/color.js",
+    "./node_modules/@lambdataro/akashic-primitives/lib/primitives.js",
+    "./node_modules/@lambdataro/akashic-primitives/lib/entities.js"
+  ]
+}
